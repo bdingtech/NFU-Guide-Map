@@ -48,8 +48,12 @@
   </view>
 
   <!-- AD -->
-  <view class="adContainer">
-    <ad unit-id="adunit-4064d7205f65fefe"></ad>
-  </view>
+  <!--  
+    <view class="adContainer">
+      <ad unit-id="adunit-4064d7205f65fefe"></ad>
+    </view> 
+  -->
+
+
 
 </view>

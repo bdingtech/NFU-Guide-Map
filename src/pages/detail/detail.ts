@@ -80,6 +80,13 @@ Page({
             ".jpg"
         );
       }
+    } else {
+      console.log(marker);
+
+      for (let i = 0; i < marker.images.length; i++) {
+        imgUrls.push(marker.images[i]);
+      }
+      console.log(imgUrls);
     }
     this.setData!({
       marker,
@@ -87,7 +94,7 @@ Page({
       logoUrl:
         marker.logo && !debug
           ? this.data.cloudRoot + "logo/" + marker.logo + ".jpg"
-          : ""
+          : "http://www.hnust.edu.cn/images/2019-05/7aeab349082b4cfeaa4d4ce094c29978.png"
     });
   }
 });

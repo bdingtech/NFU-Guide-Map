@@ -24,13 +24,16 @@
     hidden="{{toggleRoutes}}"
     style="top:{{bounding.height + bounding.top + 10}}px"
   >
-    <image
+  <!-- 浏览板 -->
+
+   <!-- 
+   <image
       id="board"
       class="item"
       bindtap="navigateTo"
       src="../../assets/images/board.png"
     ></image>
-
+  -->
     <image
       id="school"
       class="item"

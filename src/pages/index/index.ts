@@ -9,9 +9,9 @@ Page({
     markers: [] as any,
     allMarkers: [] as any,
     circles: [],
-    latitude: 23.632674,
-    longitude: 113.679404,
-    scale: 16,
+    latitude: 27.904198,
+    longitude: 112.918301,
+    scale: 15,
     catIndex: 0,
     routeIndex: 0,
     showDeck: false,
@@ -31,6 +31,7 @@ Page({
     enablePanorama: app.globalData.config.panorama.active
   },
   navigateTo(e: any) {
+    console.log(e.target);
     let url: string;
     switch (e.target.id) {
       case "school":
