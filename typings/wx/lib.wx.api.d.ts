@@ -1225,7 +1225,8 @@ backgroundAudioManager.src = 'http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb
       | "mic"
       | "camcorder"
       | "voice_communication"
-      | "voice_recognition")[];
+      | "voice_recognition"
+    )[];
   }
   interface GetBLEDeviceCharacteristicsOption {
     /** 蓝牙设备 id */
@@ -7242,6 +7243,10 @@ worker.postMessage({
     terminate(): void;
   }
   interface Wx {
+    getBackgroundFetchData(arg0: {
+      fetchType: string;
+      success(res: any): void;
+    });
     cloud: any;
     /** [Object wx.getAccountInfoSync()](wx.getAccountInfoSync.md)
 *

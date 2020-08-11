@@ -18,6 +18,7 @@ Page({
     });
   },
   navigateTo(e: any) {
+    console.log(e.target);
     switch (e.target.id) {
       case "address":
       case "navigate":
@@ -49,8 +50,7 @@ Page({
     const imgUrls: any = [];
     switch (options.id) {
       case "school":
-        marker =
-          app.globalData.markers[app.globalData.markers.length - 1].data[0];
+        marker = app.globalData.markers[0].data[0];
         break;
       default:
         if (!options.index) {
@@ -82,7 +82,7 @@ Page({
       }
     } else {
       console.log(marker);
-
+      // imgUrls.push(marker.images);
       for (let i = 0; i < marker.images.length; i++) {
         imgUrls.push(marker.images[i]);
       }

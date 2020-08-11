@@ -38,7 +38,9 @@
       id="school"
       class="item"
       bindtap="navigateTo"
+      mode="scaleToFill"
       src="../../assets/images/nfsysu.png"
+
     ></image>
 
     <image
@@ -62,7 +64,7 @@
         <view
           wx:for="{{allMarkers}}"
           wx:if="{{item.type !== '校区'}}"
-          wx:key="{{index}}"
+          wx:key="index"
           data-id="{{index}}"
           class="option {{catIndex === index ? 'selected' : ''}}"
         >
@@ -119,7 +121,7 @@
         >
           <view
             wx:for="{{markers}}"
-            wx:key="{{index}}"
+            wx:key="index"
             id="r{{index}}"
             class="point {{item.selected ? 'selected' : ''}}"
             bindtap="focusPoint"

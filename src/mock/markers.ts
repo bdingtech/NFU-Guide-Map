@@ -9,11 +9,11 @@ export default [
         short_name: "科大",
         desc:
           "湖南科技大学肇始于解放前夕的湘北建设学院，2003年由湘潭工学院与湘潭师范学院合并组建而成，是湖南省人民政府与国家国防科技工业局共建高校、湖南省人民政府与原国家安全生产监督管理总局共建高校、“十三五”国家百所中西部高校基础能力建设工程支持高校、湖南省“国内一流大学建设高校”。",
-        logo: "nfsysu",
-        images: [
-          "http://www.hnust.edu.cn/images/2020-07/5e9b331658ad41669f2c3788acb5aa48.jpg"
-        ],
-        panorama: 2291778,
+        logo:
+          "http://www.hnust.edu.cn/images/2019-05/7aeab349082b4cfeaa4d4ce094c29978.png",
+        images:
+          "http://www.hnust.edu.cn/images/2020-07/5e9b331658ad41669f2c3788acb5aa48.jpg",
+        panorama: 2291778.0,
         icon: "",
         position: 11,
         scale: "",

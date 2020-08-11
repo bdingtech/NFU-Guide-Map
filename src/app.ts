@@ -12,6 +12,19 @@ import config from "./config/index";
 
 App<IMyApp>({
   onLaunch() {
+    wx.setBackgroundFetchToken({
+      token: "xxx"
+    });
+    wx.getBackgroundFetchData({
+      fetchType: "pre",
+      success(res) {
+        // console.log(res.fetchedData); // 缓存数据
+        // console.log(res.timeStamp); // 客户端拿到缓存数据的时间戳
+        // console.log(res.path); // 页面路径
+        // console.log(res.query); // query 参数
+        // console.log(res.scene); // 场景值
+      }
+    });
     if (config.debug) {
       wx.setEnableDebug({
         enableDebug: true

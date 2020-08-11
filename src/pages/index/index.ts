@@ -1,6 +1,7 @@
 //index.js
 import { IMyApp } from "../../app";
-import { mockMarkers, mockRoutes } from "../../mock/index";
+// import { mockMarkers, mockRoutes } from "../../mock/index";
+const http = require("../../utils/http.js");
 
 const app = getApp<IMyApp>();
 
@@ -12,13 +13,13 @@ Page({
     latitude: 27.904198,
     longitude: 112.918301,
     scale: 15,
-    catIndex: 0,
+    catIndex: 1,
     routeIndex: 0,
     showDeck: false,
     showCats: true,
     toggleRoutes: false,
     focusPointId: "",
-    routes: mockRoutes,
+    routes: [],
     route: [
       {
         points: [],
@@ -31,7 +32,7 @@ Page({
     enablePanorama: app.globalData.config.panorama.active
   },
   navigateTo(e: any) {
-    console.log(e.target);
+    console.log(e);
     let url: string;
     switch (e.target.id) {
       case "school":
@@ -121,22 +122,31 @@ Page({
     });
   },
   sortMarkers(markers: any): any {
-    if (markers.length <= 1) return markers;
-    const left = [];
-    const right = [];
-    const pivotIndex = Math.floor(markers.length / 2);
-    const pivot = markers.splice(pivotIndex, 1)[0];
-    for (const i of markers) {
-      if (i.position < pivot.position) {
-        left.push(i);
-      } else {
-        right.push(i);
-      }
-    }
-    return this.sortMarkers(left).concat([pivot], this.sortMarkers(right));
+    return markers;
+    // if (markers.length <= 1) return markers;
+    // const left = [];
+    // const right = [];
+    // const pivotIndex = Math.floor(markers.length / 2);
+    // const pivot = markers.splice(pivotIndex, 1)[0];
+    // for (const i of markers) {
+    //   if (i.position < pivot.position) {
+    //     left.push(i);
+    //   } else {
+    //     right.push(i);
+    //   }
+    // }
+    // return this.sortMarkers(left).concat([pivot], this.sortMarkers(right));
   },
   // TODO:
-  loadRoutes() {
+  async loadRoutes() {
+    let result = await http("https://api.jerlan.cn/guide/routes").then(
+      (res: any) => {
+        return res.data;
+      }
+    );
+    this.setData!({
+      routes: result
+    });
     let route: any;
     for (route of this.data.routes) {
       let count = 0;
@@ -163,6 +173,7 @@ Page({
     this.setData!({
       routes: this.data.routes
     });
+    // console.log(JSON.stringify(this.data.routes));
   },
   clearMarkers(markers: any[]) {
     let num = 0;
@@ -193,8 +204,12 @@ Page({
   async loadMarkers() {
     let markers;
     if (app.globalData.config.debug) {
-      // 本地
-      markers = mockMarkers;
+      //本地mock
+      // markers = mockMarkers;
+      await http("https://api.jerlan.cn/guide/positions").then((res: any) => {
+        console.log(res);
+        markers = res.data;
+      });
     } else {
       // 云
       await wx.cloud
