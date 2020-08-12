@@ -22,11 +22,16 @@ Page({
     switch (e.target.id) {
       case "address":
       case "navigate":
-        wx.openLocation({
-          latitude: Number(this.data.marker.latitude),
-          longitude: Number(this.data.marker.longitude),
-          name: this.data.marker.name,
-          scale: 15
+        // wx.openLocation({
+        //   latitude: Number(this.data.marker.latitude),
+        //   longitude: Number(this.data.marker.longitude),
+        //   name: this.data.marker.name,
+        //   scale: 15
+        // });
+        wx.navigateTo({
+          url: `/pages/navigation_walk/navigation?latitude=${Number(
+            this.data.marker.latitude
+          )}&&longitude=${Number(this.data.marker.longitude)}`
         });
         break;
       case "phone":

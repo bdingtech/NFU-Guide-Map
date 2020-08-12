@@ -62,7 +62,7 @@ Page({
       markers: this.data.allMarkers[this.data.catIndex].data,
       toggleRoutes: false
     });
-    this.includePoints(100);
+    // this.includePoints(100);
   },
   locate() {
     this.data.mapContext.moveToLocation();
@@ -87,7 +87,7 @@ Page({
       toggleRoutes: true,
       circles: _circles
     });
-    this.includePoints(100);
+    // this.includePoints(100);
   },
   toggleCats() {
     this.setData!({
@@ -105,7 +105,7 @@ Page({
       markers: this.data.allMarkers[e.target.dataset.id].data,
       catIndex: e.target.dataset.id
     });
-    this.includePoints(100);
+    // this.includePoints(100);
   },
   focusPoint(e: any) {
     this.setData!({
@@ -115,12 +115,12 @@ Page({
       focusPointId: e.currentTarget.id
     });
   },
-  includePoints(padding: number) {
-    this.data.mapContext.includePoints({
-      padding: [padding, padding, padding, padding],
-      points: this.data.markers
-    });
-  },
+  // includePoints(padding: number) {
+  //   this.data.mapContext.includePoints({
+  //     padding: [padding, padding, padding, padding],
+  //     points: this.data.markers
+  //   });
+  // },
   sortMarkers(markers: any): any {
     return markers;
     // if (markers.length <= 1) return markers;
